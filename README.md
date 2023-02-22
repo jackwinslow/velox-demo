@@ -1,2 +1,2 @@
 # Velox Demo
-Site to display the uses and benefits of Velox.
+Site to display the use cases and benefits of Velox.
