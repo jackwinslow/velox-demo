@@ -14,6 +14,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'public/main.html'))
 })
 
+// Listen on port for incoming requests
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`)
 })
