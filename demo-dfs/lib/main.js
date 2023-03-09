@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
                     setTimeout( async () => {
                         if (!f.has(k)) {
-                            const response = await fetch(`http://127.0.0.1:8080/${k}`)
+                            const response = await fetch(`http://133.144.30.74:8080/${k}`)
                             const nb = await response.blob()
                             const nf = new Blob([nb], {
                                 type: nb.type,
