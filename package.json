@@ -4,11 +4,14 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "bDFS": "webpack build --config ./demo-dfs/webpack.config.js "
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "velox-songbird": "^1.0.53",
+    "webpack-cli": "^5.0.1"
   }
 }
