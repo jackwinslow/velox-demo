@@ -5,6 +5,7 @@ const file_callbacks = new Map();
 const requested = new Map();
 const peers = new Map();
 let peer_target = 0;
+let sr = false;
 
 
 
@@ -32,11 +33,12 @@ const v = new Velox("ws:139.144.30.74:80/nest",
 );
 
 v.registerMessage("PC", (m) => {
+        console.log(m)
         if (peer_target == 0) {
             peer_target = Math.floor(m.Body/3)+1
         }
-        if (peers.size == peer_target) {
-
+        if (peers.size >= peer_target && sr == false) {
+            sr == true
             for (const k of file_callbacks.keys()) {    
                 if (!files.has(k)) {
                     console.log("requested resource:", k, "| Time:", Math.floor(Date.now() / 1000))
