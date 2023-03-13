@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     v.onchannelopen((peer) => {
             for (const k of fc.keys()) {
-                if (!f.has(k) && !reqd.has(k)) {
+                if (!f.has(k)) {
                     console.log("requested resource:", k, "| Time:", Math.floor(Date.now() / 1000))
                     reqd.set(k)
                     v.requestBlob(k, [peer]).then((b) => {
