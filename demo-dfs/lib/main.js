@@ -7,9 +7,9 @@ const peers = new Map();
 let peer_target = 0;
 let sr = false;
 
-let velox_enabled = true;
+let velox_enabled = sessionStorage.getItem("ve") ? sessionStorage.getItem("ve") : "false"
 
-if (velox_enabled) {
+if (velox_enabled == "true") {
     const v = new Velox(
         "ws:139.144.30.74:80/nest", 
         {
