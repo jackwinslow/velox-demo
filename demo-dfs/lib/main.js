@@ -147,7 +147,7 @@ if (velox_enabled == "true") {
                         });
                         files.set(k, nf)
                         file_callbacks.get(k)()
-                        v.mountBlob(k, nf)
+                        //v.mountBlob(k, nf)
                         console.log("injecting from server:", k, "| Time:", Date.now()-time_start)
                         document.dispatchEvent(new CustomEvent('RU', {
                             detail: {
