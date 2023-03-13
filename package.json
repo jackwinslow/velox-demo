@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "bDFS": "webpack build --config ./demo-dfs/webpack.config.js "
   },
   "author": "",
   "license": "ISC",
