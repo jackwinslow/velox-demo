@@ -40,7 +40,7 @@ a:visited {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 40vw;
+    width: 34vw;
     align-items: baseline;
 }
 
@@ -65,6 +65,18 @@ a:visited {
     font-weight: 600;
     letter-spacing: 0.1vh;
     color: #F9F7F1;
+}
+
+.github {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.github-img {
+    height: 1.9vh;
+    width: 1.9vh;
+    margin-right: 0.6vw;
 }
 
 .main-content {
@@ -323,6 +335,10 @@ h5 {
     margin: 5vh 3vw 5vh 3vw;
 }
 
+.mobile-footer {
+    display: none;
+}
+
 @media (max-width: 600px) {
     .not-mobile {
         display: none;
@@ -445,5 +461,13 @@ h5 {
     
     h5 {
         font-size: 2.2vh;
+    }
+
+    .mobile-footer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 5vh;
     }
 }

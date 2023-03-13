@@ -47,7 +47,7 @@ a:visited {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 40vw;
+    width: 34vw;
     align-items: baseline;
 }
 
@@ -71,6 +71,18 @@ a:visited {
     font-size: 2.5vh;
     font-weight: 600;
     letter-spacing: 0.1vh;
+}
+
+.github {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.github-img {
+    height: 1.9vh;
+    width: 1.9vh;
+    margin-right: 0.6vw;
 }
 
 .contact-content {
