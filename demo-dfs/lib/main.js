@@ -10,22 +10,23 @@ let sr = false;
 
 
 
-const v = new Velox("ws:139.144.30.74:80/nest", 
+const v = new Velox(
+    "ws:139.144.30.74:80/nest", 
     {
         iceServers: [
             {
-                urls: [ "stun:fr-turn1.xirsys.com" ]
+                urls: [ "stun:us-turn3.xirsys.com" ]
             }, 
-            { 
-                username: "Bs15zoaVr90L-hD9N-jTYTbAFEZ_DcEkC1y6HOnO_BAIMga6mzqqHvJexmpK9U9rAAAAAGQImPRwYXJsZW9u",
-                credential: "f2dfa7d6-bdbb-11ed-93e2-0242ac120004",
+            {
+                username: "7XSuZRhbYKu105TrkOEwcH2tPN-zWZDZw_72u2UQNZXq0FAQF8xjpFMP3eYERIicAAAAAGQPSt5wYXJsZW9u",
+                credential: "8534c818-c1b9-11ed-987c-0242ac140004",
                 urls: [
-                    "turn:fr-turn1.xirsys.com:80?transport=udp",
-                    "turn:fr-turn1.xirsys.com:3478?transport=udp",
-                    "turn:fr-turn1.xirsys.com:80?transport=tcp",
-                    "turn:fr-turn1.xirsys.com:3478?transport=tcp",
-                    "turns:fr-turn1.xirsys.com:443?transport=tcp",
-                    "turns:fr-turn1.xirsys.com:5349?transport=tcp"
+                    "turn:us-turn3.xirsys.com:80?transport=udp",
+                    //"turn:us-turn3.xirsys.com:3478?transport=udp",
+                    //"turn:us-turn3.xirsys.com:80?transport=tcp",
+                    //"turn:us-turn3.xirsys.com:3478?transport=tcp",
+                    //"turns:us-turn3.xirsys.com:443?transport=tcp",
+                    //"turns:us-turn3.xirsys.com:5349?transport=tcp"
                 ]
             }
         ]
@@ -94,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             peers.set(peer)
 
-            v.send({Type: "PC", Body:peers.size})
+            v.send({Type: "PC", Body:peers.size},[peer])
 
             console.log(peers.size, peer_target)
 
