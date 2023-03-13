@@ -24,3 +24,124 @@ h1 {
     margin: 1vh 0;
     line-height: 7vh;
 }
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: #F9F7F1;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    margin: 4vh 4vw;
+    justify-content: space-between;
+    align-items: baseline;
+    opacity: 0.8;
+    align-items: baseline;
+}
+
+.nav-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 40vw;
+    align-items: baseline;
+}
+
+.nav-item {
+    font-size: 2vh;
+    font-weight: 500;
+    color: #F9F7F1;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    border-bottom: 0.3vh solid rgba(0, 0, 0, 0%);
+    padding: 0 0 0.4vh 0;
+}
+
+.nav-item:hover {
+    border-bottom: 0.3vh solid #F9F7F1;
+}
+
+.logo {
+    font-size: 2.5vh;
+    font-weight: 600;
+    letter-spacing: 0.1vh;
+}
+
+.contact-content {
+    height: 72vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0 10vw 0 10vw;
+    width: 80vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-header {
+    margin-top: 5vh;
+    font-size: 5vh;
+    margin-bottom: 2vh;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    border: 0.2vh solid rgba(249, 247, 241, 50%);
+    height: 40vh;
+    width: 44vw;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.contributor {
+    display: flex;
+    flex-direction: row;
+    width: 34vw;
+    justify-content: space-between;
+}
+
+h2 {
+    font-size: 3.2vh;
+    margin: 0;
+}
+
+.name {
+    letter-spacing: 0.1vw;
+    color: #F9F7F1;
+    font-weight: 600;
+}
+
+.linkedin-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: none;
+    border: none;
+    font-family: 'Poppins';
+    opacity: 0.8;
+    cursor: pointer;
+    padding: 0;
+}
+
+.linkedin-img {
+    width: 2.3vh;
+    height: 2.3vh;
+    margin-right: 0.5vw;
+}
+
+.linkedin {
+    color: #F9F7F1;
+    font-weight: 500;
+}
+
+@media (max-width: 600px) {
+    .not-mobile {
+        display: none;
+    }
+}
