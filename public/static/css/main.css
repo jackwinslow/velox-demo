@@ -236,6 +236,7 @@ h2 {
     letter-spacing: 0.05vh;
     font-size: 1.7vh;
     background-color: #FFD334;
+    border: 0.2vh solid #FFD334;
     color: #242428;
 }
 
@@ -482,4 +483,16 @@ h5 {
 .text-transition-in {
     opacity: 1 !important;
     transition: opacity 0.2s ease-in-out;
+}
+
+.color-transition-out {
+    background-color: rgba(0, 0, 0, 0%) !important;
+    color: #FFD334 !important;
+    transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+
+.color-transition-in {
+    background-color: #FFD334 !important;
+    color: #242428 !important;
+    transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
 }

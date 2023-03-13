@@ -120,6 +120,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Set initial velox enabled button text value
   document.getElementById('velox_enabled').innerText = velox_enabled == "true" ? "VELOX ENABLED" : "VELOX DISABLED"
+  if (velox_enabled == "false") {
+    document.getElementById('toggle_button').style.backgroundColor = "rgba(0, 0, 0, 0%)"
+    document.getElementById('toggle_button').style.color = "#FFD334"
+  }
 
   // Listen for resource updated events
   document.addEventListener('RU', (event) => {
@@ -161,22 +165,22 @@ function toggleVelox() {
   if (velox_enabled == "true") {
     document.getElementById('velox_enabled').classList.remove('text-transition-in')
     document.getElementById('velox_enabled').classList.add('text-transition-out')
+    document.getElementById('toggle_button').classList.remove('color-transition-out')
+    document.getElementById('toggle_button').classList.add('color-transition-in')
     setTimeout(() => {
       document.getElementById('velox_enabled').innerText = "VELOX ENABLED"
       document.getElementById('velox_enabled').classList.remove('text-transition-out')
       document.getElementById('velox_enabled').classList.add('text-transition-in')
-      document.getElementById('rerun').style.color = "#FFD334"
-      document.getElementById('rerun').style.borderColor = "#FFD334"
     }, 200)
   } else {
     document.getElementById('velox_enabled').classList.remove('text-transition-in')
     document.getElementById('velox_enabled').classList.add('text-transition-out')
+    document.getElementById('toggle_button').classList.remove('color-transition-in')
+    document.getElementById('toggle_button').classList.add('color-transition-out')
     setTimeout(() => {
       document.getElementById('velox_enabled').innerText = "VELOX DISABLED"
       document.getElementById('velox_enabled').classList.remove('text-transition-out')
       document.getElementById('velox_enabled').classList.add('text-transition-in')
-      document.getElementById('rerun').style.color = "#FFD334"
-      document.getElementById('rerun').style.borderColor = "#FFD334"
     }, 200)
   }
 }
