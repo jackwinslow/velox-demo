@@ -350,6 +350,7 @@ h5 {
     .network-img {
         width: 90vw;
         height: auto;
+        margin-top: 3vh;
     }
 
     .sub-div {
@@ -358,15 +359,21 @@ h5 {
     }
 
     .front-button {
-        width: 40vw;
+        width: 37vw;
         height: 6vh;
-        letter-spacing: 0.05vh;
-        font-size: 1.7vh;
+        letter-spacing: 0.02vh;
+        font-size: 1.5vh;
     }
 
     .npm-button {
-        width: 44vw;
-        margin-left: 3vh;
+        width: 40vw;
+        margin-left: 3vw;
         border: 0.2vh solid #F9F7F1;
+    }
+
+    .buttons-container {
+        display: flex;
+        flex-direction: row;
+        margin: 3vh 0;
     }
 }
