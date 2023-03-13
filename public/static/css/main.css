@@ -64,6 +64,7 @@ a:visited {
     font-size: 2.5vh;
     font-weight: 600;
     letter-spacing: 0.1vh;
+    color: #F9F7F1;
 }
 
 .main-content {
@@ -172,6 +173,7 @@ h2 {
     border: 0.2vh solid rgba(249, 247, 241, 50%);
     height: 80vh;
     width: 80vw;
+    align-items: center;
 }
 
 .grid-container {
@@ -190,8 +192,8 @@ h2 {
 }
 
 .grid-img {
-    width: 5vh;
-    height: 5vh;
+    width: 3vw;
+    height: 3vw;
     margin-right: 0.3vh;
 }
 
@@ -199,7 +201,6 @@ h2 {
     /* background-color: rgba(249, 247, 241, 10%); */
     display: flex;
     flex-direction: column;
-    height: 80vh;
     width: 40vw;
     align-items: center;
 }
@@ -209,7 +210,6 @@ h2 {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin-top: 10vh;
     width: 27vw;
 }
 
@@ -260,7 +260,7 @@ h2 {
     flex-direction: row;
     align-items: baseline;
     justify-content: space-between;
-    padding: 2.8vh 0;
+    padding: 2.8vh 1vw;
 }
 
 .metric:hover {
@@ -375,5 +375,75 @@ h5 {
         display: flex;
         flex-direction: row;
         margin: 3vh 0;
+    }
+
+    .section-header {
+        margin-top: 5vh;
+        font-size: 3vh;
+        margin-bottom: 2vh;
+    }
+
+    .demo-container {
+        display: flex;
+        flex-direction: column;
+        border: 0.2vh solid rgba(249, 247, 241, 50%);
+        height: 80vh;
+        width: 80vw;
+        align-items: center;
+    }
+
+    .grid-img {
+        width: 5vw;
+        height: 5vw;
+    }
+
+    .grid-container {
+        height: 40vh;
+        width: auto;
+    }
+
+    .control-panel {
+        width: auto;
+        align-items: center;
+    }
+
+    .controls-container {
+        width: 66vw;
+    }
+
+    .toggle-button {
+        width: 30vw;
+        height: 6vh;
+        font-size: 1.3vh;
+    }
+    
+    .rerun-button {
+        width: 30vw;
+        height: 6vh;
+        font-size: 1.3vh;
+    }
+
+    .control-line {
+        height: 0.25vh;
+        width: 66vw;
+        margin: 5vh 0 0 0;
+    }
+
+    .metrics {
+        width: 66vw;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .metric {
+        padding: 2.8vh 1vw;
+    }
+
+    h4 {
+        font-size: 1.9vh;
+    }
+    
+    h5 {
+        font-size: 2.2vh;
     }
 }
