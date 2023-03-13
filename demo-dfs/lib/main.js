@@ -7,7 +7,7 @@ const peers = new Map();
 let peer_target = 0;
 let sr = false;
 
-let velox_enabled = sessionStorage.getItem("ve") ? sessionStorage.getItem("ve") : "false"
+let velox_enabled = sessionStorage.getItem("ve") ? sessionStorage.getItem("ve") : "true"
 
 if (velox_enabled == "true") {
     const v = new Velox(
