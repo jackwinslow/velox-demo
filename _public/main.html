@@ -1,0 +1,87 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="static/css/main.css">
+        <script src="static/js/main.js"></script>
+        <title>Velox</title>
+    </head>
+    <body>
+        <div class="nav fade-in2 nav-slide-in-top" id="nav">
+            <div class="nav-items">
+                <a href="/" class="logo">
+                    Velox
+                </a>
+    
+                <a class="nav-item" href="#analytics">
+                    Analytics
+                </a>
+    
+                <a class="nav-item" href="#tech">
+                    Tech
+                </a>
+    
+                <a class="nav-item" href="#more-info">
+                    More Info
+                </a>
+            </div>
+            
+            <a href="/contact" class="contact">
+                Contact
+            </a>
+        </div>
+        <div id="main" class="main">
+            <div id="main-text" class="main-text">
+                <h1 class="fade-in slide-in-bottom">
+                    Streamline<br/>Peer-to-peer
+                </h1>
+                <h2 class="fade-in2 slide-in-bottom2">
+                    Weild the power of WebRTC with Velox
+                </h2>
+
+                <div class="cta-wrapper">
+                    <button class="cta-button fade-in3 slide-in-bottom3" onclick="tryItOut()">
+                        <span class="cta-button-text">Try It Out</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="demo-container">
+                
+                <div id="image-grid" class="grid-container slide-in-bottom2"></div>
+
+                <div class="controls">
+                    <button class="toggle" onclick="toggleP2p()">
+                        <div id="toggle-circle" class="toggle-circle"></div>
+                    </button>
+
+                    <span id="toggle-label" class="toggle-label">Peer-to-Peer: <span id="peer-status">Enabled</span></span>
+
+                    <button class="toggle">
+                        <div id="toggle-circle" class="toggle-circle"></div>
+                    </button>
+                </div>
+            </div>
+            <script>
+                for(let i = 0; i < 10; i++) {
+                    let row = document.createElement('div')
+                    row.id = `row-${i}`
+                    row.classList.add('grid-row')
+                    row.style.marginBottom = '0.5vh'
+                    for (let j = 0; j < 10; j++) {
+                        let img = document.createElement('img')
+                        img.src =  `../../assets/tiles/tile_${j}_${i}.jpg`
+                        img.id = `img-${i}`
+                        img.style.marginRight = '0.5vh'
+                        img.style.borderRadius = '0.6vh'
+                        row.appendChild(img)
+                    }
+                    row.classList.add(`row-fade-in-${i}`)
+                    // row.classList.add(`row-slide-in-bottom-${i}`)
+                    document.getElementById('image-grid').appendChild(row)
+                }
+            </script>
+        </div>
+    </body>
+</html>

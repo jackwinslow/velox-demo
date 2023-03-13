@@ -14,6 +14,11 @@ app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'public/main.html'))
 })
 
+// Route /contact to contact page
+app.get('/contact', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'public/contact.html'))
+})
+
 // Listen on port for incoming requests
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`)

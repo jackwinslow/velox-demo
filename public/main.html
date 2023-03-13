@@ -4,10 +4,163 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="static/css/main.css">
+        <script src="assets/particles.js"></script>
         <script src="static/js/main.js"></script>
+        <script src="static/js/demo-dfs.js"></script>
         <title>Velox</title>
     </head>
     <body>
-        
+        <div id="particles-js"></div>
+        <div class="nav">
+            <div class="nav-items">
+                <a href="/" class="logo">
+                    Velox
+                </a>
+    
+                <button class="nav-item" onclick="scrollToElement('demo')">
+                    Demonstration
+                </button>
+    
+                <button class="nav-item" onclick="scrollToElement('tech')">
+                    Technology
+                </button>
+    
+                <button class="nav-item" onclick="scrollToElement('more-info')">
+                    More Info
+                </button>
+            </div>
+            
+            <a href="/contact" class="nav-item">
+                Contact
+            </a>
+        </div>
+
+        <div id="main-content" class="main-content fade-in-bottom">
+            <div class="info">
+                <h3>WHAT IS VELOX?</h3>
+                <h1>The Future of Peer <br/> Networking is Here</h1>
+                <div class="sub-div">
+                    <div class="sub-line"></div>
+                    <div class="sub-content">
+                        <h2>Wield the power of WebRTC by integrating peer networks into your apps and reducing reliance on central servers.</h2>
+                        <div class="buttons-container">
+                            <button class="try-it-out-button front-button" onclick="scrollToElement('demo')">
+                                TRY IT OUT
+                            </button>
+                            <button class="npm-button front-button" onclick="window.open(`https://www.npmjs.com/package/velox-songbird`)">
+                                INSTALL WITH NPM
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="img-wrapper">
+                <img class="network-img" src="assets/network.png" alt="network">
+            </div>
+        </div>
+
+        <div id="demo" class="demo-content fade-in-bottom">
+            <h1 class="section-header">See Velox in Action</h1>
+            <div class="demo-container">
+                <div class="grid-container">
+                    <div id="image-grid" class="grid-container"></div>
+                    <script>
+                        for(let i = 0; i < 10; i++) {
+                            let row = document.createElement('div')
+                            row.id = `row-${i}`
+                            row.classList.add('grid-row')
+                            row.style.marginBottom = '0.3vh'
+                            for (let j = 0; j < 10; j++) {
+                                let img = document.createElement('img')
+                                // img.src =  `../../assets/tiles/tile_${j}_${i}.jpg`
+                                img.classList.add('grid-img')
+                                img.setAttribute('data-src', `../../assets/tiles/tile_${j}_${i}.jpg`)
+                                img.id = `img-${i}`
+                                row.appendChild(img)
+                            }
+                            row.classList.add(`row-fade-in-${i}`)
+                            // row.classList.add(`row-slide-in-bottom-${i}`)
+                            document.getElementById('image-grid').appendChild(row)
+                        }
+                    </script>
+                </div>
+                <div class="control-panel">
+                    <div class="controls-container">
+                        <button class="toggle-button">
+                            VELOX ENABLED
+                        </button>
+                        <button class="rerun-button" type="button" onclick="
+                            // Set url to #demo to keep in viewport
+                            location.href='/#demo'
+                            // Reload page to trigger velox
+                            location.reload()
+                        ">
+                            RERUN
+                        </button>
+                    </div>
+                    <div class="control-line"></div>
+                    <div class="metrics">
+                        <div class="metric">
+                            <h4>Total Fetch Time</h4>
+                            <h5>20 ms</h4>
+                        </div>
+                        <div class="metric">
+                            <h4>Average Fetch Time</h4>
+                            <h5>20 ms</h4>
+                        </div>
+                        <div class="metric">
+                            <h4>Slowest Fetch Time</h4>
+                            <h5>20 ms</h4>
+                        </div>
+                        <div class="metric">
+                            <h4>Fastest Fetch Time</h4>
+                            <h5>20 ms</h4>
+                        </div>
+                        <div class="metric">
+                            <h4>Source Count</h4>
+                            <h5>20 ms</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tech" class="tech-content fade-in-bottom">
+            <h1 class="section-header" >Integrated Technology</h1>
+            <div class="tech-sub-container">
+                <div class="info-container">
+                    <h1 class="info-header">Interesting Header</h1>
+                    <h2 class="info-desc">
+                        This is some engaging content about how we built
+                        this bad boy. It should be very interesting so that
+                        we captivate our audience and people think it is cool.
+                        We can think of something good later or use ChatGPT or
+                        whatever works best.
+                    </h2>
+                </div>
+                <div class="info-line"></div>
+                <div class="info-container">
+                    <h1 class="info-header">Some Other Interesting Header</h1>
+                    <h2 class="info-desc">
+                        This is some engaging content about how we built
+                        this bad boy. It should be very interesting so that
+                        we captivate our audience and people think it is cool.
+                        We can think of something good later or use ChatGPT or
+                        whatever works best.
+                    </h2>
+                </div>
+                <div class="info-line"></div>
+                <div class="info-container">
+                    <h1 class="info-header">Wow Even a Third One</h1>
+                    <h2 class="info-desc">
+                        This is some engaging content about how we built
+                        this bad boy. It should be very interesting so that
+                        we captivate our audience and people think it is cool.
+                        We can think of something good later or use ChatGPT or
+                        whatever works best.
+                    </h2>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
