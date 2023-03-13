@@ -161,5 +161,3 @@ if (velox_enabled == "true") {
         }
     })
 }
-
-export default velox_enabled;

@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="static/css/main.css">
         <script src="assets/particles.js"></script>
-        <script type="module" src="static/js/main.js"></script>
-        <script type="module" src="static/js/demo-dfs.js"></script>
+        <script src="static/js/main.js"></script>
+        <script src="static/js/demo-dfs.js"></script>
         <title>Velox</title>
     </head>
     <body>
@@ -83,10 +83,8 @@
                 </div>
                 <div class="control-panel">
                     <div class="controls-container">
-                        <button class="toggle-button">
-                            VELOX ENABLED
-                        </button>
-                        <button class="rerun-button" type="button" onclick="
+                        <button class="toggle-button" onclick="toggleVelox()"><span id="velox_enabled"></span></button>
+                        <button id="rerun" class="rerun-button" type="button" onclick="
                             // Set url to #demo to keep in viewport
                             location.href='/#demo'
                             // Reload page to trigger velox
@@ -99,15 +97,15 @@
                     <div class="metrics">
                         <div class="metric">
                             <h4>Average Fetch Time</h4>
-                            <h5>20 ms</h4>
+                            <h5 id="fetch_time">...</h4>
                         </div>
                         <div class="metric">
                             <h4>Peer Count</h4>
-                            <h5>4</h4>
+                            <h5 id="peer_count">...</h4>
                         </div>
                         <div class="metric">
                             <h4>Peer Fetch Percent</h4>
-                            <h5>20%</h4>
+                            <h5 id="pfp">...</h4>
                         </div>
                     </div>
                 </div>
