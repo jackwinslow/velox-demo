@@ -6,6 +6,7 @@ const requested = new Map();
 const peers = new Map();
 let peer_target = 0;
 let sr = false;
+
 let velox_enabled = true;
 
 if (velox_enabled) {
@@ -33,9 +34,8 @@ if (velox_enabled) {
     );
 
     v.registerMessage("PC", (m) => {
-            console.log(m)
             if (peer_target == 0) {
-                peer_target = Math.floor(m.Body/3)+1
+                peer_target = Math.floor(m.Body/4)+1
             }
             if (peers.size >= peer_target && sr == false) {
                 sr == true
@@ -43,10 +43,11 @@ if (velox_enabled) {
                     if (!files.has(k)) {
                         const time_start = Date.now()
                         requested.set(k)
+
                         const reqing = [...peers.keys()][[Math.floor(Math.random() * peers.size)]]
                         v.requestBlob(k, [reqing]).then((b) => {
                             if (!files.has(k)) {
-                                console.log("injecting from peer:", k, "| Time:", Math.floor(Date.now() / 1000))
+                                console.log("injecting from peer:", k, "| Time:", Date.now()-time_start)
                                 files.set(k, b)
                                 file_callbacks.get(k)()
                                 document.dispatchEvent(new CustomEvent('RU', {
@@ -58,7 +59,6 @@ if (velox_enabled) {
                                 }))
                             }
                         })
-                
                         setTimeout( async () => {
                             if (!files.has(k)) {
                                 const response = await fetch(`http://139.144.30.74:8080/${k}`)
@@ -69,7 +69,7 @@ if (velox_enabled) {
                                 files.set(k, nf)
                                 file_callbacks.get(k)()
                                 v.mountBlob(k, nf)
-                                console.log("injecting from server:", k, "| Time:", Math.floor(Date.now() / 1000))
+                                console.log("injecting from server:", k, "| Time:", Date.now()-time_start)
                                 document.dispatchEvent(new CustomEvent('RU', {
                                     detail: {
                                         elapsed: Date.now()-time_start,
@@ -78,6 +78,7 @@ if (velox_enabled) {
                                 }))
                             }
                         }, 3500)
+
                     }
                 }
             }
@@ -102,23 +103,21 @@ if (velox_enabled) {
         v.connect("image-demo");
 
         v.onchannelopen((peer) => {
-
+                console.log("opened connection to:", peer)
                 peers.set(peer)
-
                 v.send({Type: "PC", Body:peers.size},[peer])
-
-                console.log(peers.size, peer_target)
-
             }
         )
 
         v.onchannelclose((peer) => {
             console.log("closed connection to:", peer)
             peers.delete(peer)
-        })
+            }
+        )
 
 
     }) 
+
 } else {
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -134,30 +133,31 @@ if (velox_enabled) {
                 toBlob[n].setAttribute("src", furl)
             })
         }
-    })
+    
 
-    for (const k of file_callbacks.keys()) {    
-        if (!files.has(k)) {
-            const time_start = Date.now()
-            setTimeout( async () => {
-                if (!files.has(k)) {
-                    const response = await fetch(`http://139.144.30.74:8080/${k}`)
-                    const nb = await response.blob()
-                    const nf = new Blob([nb], {
-                        type: nb.type,
-                    });
-                    files.set(k, nf)
-                    file_callbacks.get(k)()
-                    v.mountBlob(k, nf)
-                    console.log("injecting from server:", k, "| Time:", Math.floor(Date.now() / 1000))
-                    document.dispatchEvent(new CustomEvent('RU', {
-                        detail: {
-                            elapsed: Date.now()-time_start,
-                            peer_fetched: false,
-                        }
-                    }))
-                }
-            }, 3500)
+        for (const k of file_callbacks.keys()) {    
+            if (!files.has(k)) {
+                const time_start = Date.now()
+                setTimeout( async () => {
+                    if (!files.has(k)) {
+                        const response = await fetch(`http://139.144.30.74:8080/${k}`)
+                        const nb = await response.blob()
+                        const nf = new Blob([nb], {
+                            type: nb.type,
+                        });
+                        files.set(k, nf)
+                        file_callbacks.get(k)()
+                        v.mountBlob(k, nf)
+                        console.log("injecting from server:", k, "| Time:", Date.now()-time_start)
+                        document.dispatchEvent(new CustomEvent('RU', {
+                            detail: {
+                                elapsed: Date.now()-time_start,
+                                peer_fetched: false,
+                            }
+                        }))
+                    }
+                }, 3500)
+            }
         }
-    }
+    })
 }
