@@ -124,20 +124,25 @@ document.addEventListener('DOMContentLoaded', function () {
   // Listen for resource updated events
   document.addEventListener('RU', (event) => {
 
-    // Update fetch time
-    fetch_times.push(event.detail.elapsed)
-    document.getElementById('fetch_time').innerText = `${calculateAverage(fetch_times)} ms`
+    // Quickfix to avoid leftover promises from late peers resolving and firing off events being caught here
+    if (fetchCount < 100) {
 
-    // Update peer count
-    if (event.detail.peer_fetched) {
-      peerCount += 1
-      peers.add(event.detail.from)
+      // Update fetch time
+      fetch_times.push(event.detail.elapsed)
+      document.getElementById('fetch_time').innerText = `${calculateAverage(fetch_times)} ms`
+
+      // Update peer count
+      if (event.detail.peer_fetched) {
+        peerCount += 1
+        peers.add(event.detail.from)
+      }
+      document.getElementById('peer_count').innerText = peers.size
+
+      // Update peer fetch percentage
+      fetchCount += 1
+      document.getElementById('pfp').innerText = `${Math.ceil(peerCount/fetchCount*100)}%`
+
     }
-    document.getElementById('peer_count').innerText = peers.size
-
-    // Update peer fetch percentage
-    fetchCount += 1
-    document.getElementById('pfp').innerText = `${Math.ceil(peerCount/fetchCount*100)}%`
   })
 });
 
