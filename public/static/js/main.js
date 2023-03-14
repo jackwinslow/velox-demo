@@ -123,6 +123,11 @@ document.addEventListener('DOMContentLoaded', function () {
   if (velox_enabled == "false") {
     document.getElementById('toggle_button').style.backgroundColor = "rgba(0, 0, 0, 0%)"
     document.getElementById('toggle_button').style.color = "#FFD334"
+
+    document.getElementById('chat-input').disabled = true
+    document.getElementById('send-button').disabled = true
+    document.getElementById('chat-input').placeholder = "Enable Velox to use Chat"
+    document.getElementById('send-button').style.opacity = 0.5
   }
 
   // Listen for resource updated events
