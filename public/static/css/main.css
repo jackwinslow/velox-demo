@@ -10,6 +10,10 @@ body {
     user-select: none;
 }
 
+body::-webkit-scrollbar{
+    display: none;
+}
+
 #particles-js {
     position: fixed;
     z-index: -1;
@@ -328,6 +332,10 @@ h5 {
 .thread-container {
     height: 60vh;
     overflow-y: scroll;
+}
+
+.thread-container::-webkit-scrollbar{
+    display: none;
 }
 
 .thread {
