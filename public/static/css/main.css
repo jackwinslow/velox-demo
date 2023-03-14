@@ -167,7 +167,7 @@ h2 {
 }
 
 .demo-content {
-    height: 100vh;
+    height: 180vh;
     display: flex;
     flex-direction: column;
     margin: 0 10vw 0 10vw;
@@ -182,9 +182,22 @@ h2 {
 
 .demo-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     border: 0.2vh solid rgba(249, 247, 241, 50%);
-    height: 80vh;
+    align-items: center;
+}
+
+.section-sub-header {
+    margin-top: 2vh;
+    font-size: 3vh;
+    margin-bottom: 0;
+    opacity: 0.8;
+}
+
+.peer-cache-container {
+    display: flex;
+    flex-direction: row;
+    height: 70vh;
     width: 80vw;
     align-items: center;
 }
@@ -194,7 +207,7 @@ h2 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 80vh;
+    height: 70vh;
     width: 40vw;
     /* background: #242428; */
 }
@@ -296,7 +309,108 @@ h5 {
     margin: 0;
 }
 
-.tech-content {
+.demo-separation-line {
+    height: 0.25vh;
+    background-color: #F9F7F1;
+    opacity: 0.2;
+    width: 80vw;
+    margin: 0 0 0 0;
+}
+
+.peer-chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    width: 80vw;
+    align-items: center;
+}
+
+.thread-container {
+    height: 60vh;
+    overflow-y: scroll;
+}
+
+.thread {
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    color: #F9F7F1;
+    width: 40vw;
+    font-size: 1.1vw;
+    font-weight: 400;
+    display: flex;
+    flex-direction: row;
+}
+
+.message-odd {
+    background-color: rgba(249, 247, 241, 20%);
+}
+.message-even {
+    background-color: rgba(249, 247, 241, 10%);
+}
+
+.message-from {
+    color: #FFD334;
+    opacity: 0.8;
+    padding-left: 1vw;
+}
+
+.message-text {
+    padding-left: 0.5vw;
+    padding-right: 1vw;
+}
+
+.input-container {
+    width: 40vw;
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgba(249, 247, 241, 30%);
+}
+
+.chat-input {
+    width: 35vw;
+    background: none;
+    height: 5vh;
+    border: none;
+    font-size: 1.1vw;
+    padding-left: 1vw;
+    padding-right: 0;
+    color: #F9F7F1;
+    caret-color: #F9F7F1;
+    font-family: "Poppins";
+    font-weight: 400;
+}
+
+.chat-input:focus {
+    outline: none;
+}
+
+.send-button-wrapper {
+    width: 5vw;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.send-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #F9F7F1;
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 1.2vw;
+    margin: 0;
+    padding: 0;
+}
+ 
+/* .tech-content {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -335,7 +449,7 @@ h5 {
 
 .info-desc {
     margin: 5vh 3vw 5vh 3vw;
-}
+} */
 
 .mobile-footer {
     display: none;
@@ -401,10 +515,24 @@ h5 {
         margin-bottom: 2vh;
     }
 
+    .demo-content {
+        height: 190vh;
+    }
+
     .demo-container {
+        border: 0.2vh solid rgba(249, 247, 241, 50%);
+        width: 80vw;
+        align-items: center;
+    }
+
+    .section-sub-header {
+        margin-top: 2vh;
+        font-size: 2.2vh;
+    }
+
+    .peer-cache-container {
         display: flex;
         flex-direction: column;
-        border: 0.2vh solid rgba(249, 247, 241, 50%);
         height: 80vh;
         width: 80vw;
         align-items: center;
@@ -463,6 +591,43 @@ h5 {
     
     h5 {
         font-size: 2.2vh;
+    }
+
+    .message {
+        padding-top: 1.5vh;
+        padding-bottom: 1.5vh;
+        width: 70vw;
+        font-size: 3vw;
+    }
+    
+    .message-from {
+        padding-left: 2vw;
+    }
+    
+    .message-text {
+        padding-left: 1vw;
+        padding-right: 2vw;
+    }
+    
+    .input-container {
+        width: 70vw;
+    }
+    
+    .chat-input {
+        width: 60vw;
+        background: none;
+        height: 5vh;
+        border: none;
+        font-size: 3vw;
+        padding-left: 2vw;
+    }
+    
+    .send-button-wrapper {
+        width: 10vw;
+    }
+    
+    .send-button {
+        font-size: 2.8vw;
     }
 
     .mobile-footer {

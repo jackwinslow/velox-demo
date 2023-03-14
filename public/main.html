@@ -7,6 +7,7 @@
         <script src="assets/particles.js"></script>
         <script src="static/js/main.js"></script>
         <script src="static/js/demo-dfs.js"></script>
+        <script src="static/js/chat.js"></script>
         <title>Velox</title>
     </head>
     <body>
@@ -59,53 +60,69 @@
         <div id="demo" class="demo-content">
             <h1 class="section-header">See Velox in Action</h1>
             <div class="demo-container">
-                <div class="grid-container">
-                    <div id="image-grid" class="grid-container"></div>
-                    <script>
-                        for(let i = 0; i < 10; i++) {
-                            let row = document.createElement('div')
-                            row.id = `row-${i}`
-                            row.classList.add('grid-row')
-                            row.style.marginBottom = '0.3vh'
-                            for (let j = 0; j < 10; j++) {
-                                let img = document.createElement('img')
-                                // img.src =  `../../assets/tiles/tile_${j}_${i}.jpg`
-                                img.classList.add('grid-img')
-                                img.setAttribute('data-src', `../../assets/tiles/tile_${j}_${i}.jpg`)
-                                img.id = `img-${i}`
-                                row.appendChild(img)
+                <h1 class="section-sub-header">Peer-Fetching Assets</h1>
+                <div class="peer-cache-container">
+                    <div class="grid-container">
+                        <div id="image-grid" class="grid-container"></div>
+                        <script>
+                            for(let i = 0; i < 10; i++) {
+                                let row = document.createElement('div')
+                                row.id = `row-${i}`
+                                row.classList.add('grid-row')
+                                row.style.marginBottom = '0.3vh'
+                                for (let j = 0; j < 10; j++) {
+                                    let img = document.createElement('img')
+                                    // img.src =  `../../assets/tiles/tile_${j}_${i}.jpg`
+                                    img.classList.add('grid-img')
+                                    img.setAttribute('data-src', `../../assets/tiles/tile_${j}_${i}.jpg`)
+                                    img.id = `img-${i}`
+                                    row.appendChild(img)
+                                }
+                                row.classList.add(`row-fade-in-${i}`)
+                                // row.classList.add(`row-slide-in-bottom-${i}`)
+                                document.getElementById('image-grid').appendChild(row)
                             }
-                            row.classList.add(`row-fade-in-${i}`)
-                            // row.classList.add(`row-slide-in-bottom-${i}`)
-                            document.getElementById('image-grid').appendChild(row)
-                        }
-                    </script>
-                </div>
-                <div class="control-panel">
-                    <div class="controls-container">
-                        <button id="toggle_button" class="toggle-button" onclick="toggleVelox()"><span id="velox_enabled"></span></button>
-                        <button id="rerun" class="rerun-button" type="button" onclick="
-                            // Set url to #demo to keep in viewport
-                            location.href='/#demo'
-                            // Reload page to trigger velox
-                            location.reload()
-                        ">
-                            TEST
-                        </button>
+                        </script>
                     </div>
-                    <div class="control-line"></div>
-                    <div class="metrics">
-                        <div class="metric">
-                            <h4>Average Fetch Time</h4>
-                            <h5 id="fetch_time">...</h4>
+                    <div class="control-panel">
+                        <div class="controls-container">
+                            <button id="toggle_button" class="toggle-button" onclick="toggleVelox()"><span id="velox_enabled"></span></button>
+                            <button id="rerun" class="rerun-button" type="button" onclick="
+                                // Set url to #demo to keep in viewport
+                                location.href='/#demo'
+                                // Reload page to trigger velox
+                                location.reload()
+                            ">
+                                TEST
+                            </button>
                         </div>
-                        <div class="metric">
-                            <h4>Peer Count</h4>
-                            <h5 id="peer_count">...</h4>
+                        <div class="control-line"></div>
+                        <div class="metrics">
+                            <div class="metric">
+                                <h4>Average Fetch Time</h4>
+                                <h5 id="fetch_time">...</h4>
+                            </div>
+                            <div class="metric">
+                                <h4>Peer Count</h4>
+                                <h5 id="peer_count">...</h4>
+                            </div>
+                            <div class="metric">
+                                <h4>Peer Fetch Percent</h4>
+                                <h5 id="pfp">...</h4>
+                            </div>
                         </div>
-                        <div class="metric">
-                            <h4>Peer Fetch Percent</h4>
-                            <h5 id="pfp">...</h4>
+                    </div>
+                </div>
+                <div class="demo-separation-line"></div>
+                <h1 class="section-sub-header">Global Peer-Based Chat</h1>
+                <div class="peer-chat-container">
+                    <div id="thread-container" class="thread-container">
+                        <div id="thread" class="thread"></div>
+                    </div>
+                    <div class="input-container">
+                        <input id="chat-input" type="text" class="chat-input" placeholder="Enter your message...">
+                        <div class="send-button-wrapper">
+                            <button class="send-button" onclick="sendMessage()">Send</button>
                         </div>
                     </div>
                 </div>
