@@ -11,7 +11,7 @@ let velox_enabled = sessionStorage.getItem("ve") ? sessionStorage.getItem("ve") 
 
 if (velox_enabled == "true") {
     const v = new Velox(
-        "ws:139.144.30.74:80/nest", 
+        "ws:139.144.30.74:8080/nest", 
         {
             iceServers: [
                 {
@@ -33,9 +33,23 @@ if (velox_enabled == "true") {
         }
     );
 
+    v.registerMessage("GM", (m) => {
+        document.dispatchEvent(new CustomEvent("rc", {
+            detail: {
+                from: m.UUID,
+                content: m.Body
+            }
+        }))
+    })
+
+    // document.dispatchEvent(new CustomEvent("sc", {detail: {content: /** INSERT CONTENT HERE */]}}))
+    document.addEventListener("sc", (ev) => {
+        v.send({Type: "GM", Body: ev.detail.content})
+    })
+
     v.registerMessage("PC", (m) => {
             if (peer_target == 0) {
-                peer_target = Math.floor(m.Body/4)+1
+                peer_target = Math.floor(m.Body/8)+1
             }
             if (peers.size >= peer_target && sr == false) {
                 sr == true
@@ -61,7 +75,7 @@ if (velox_enabled == "true") {
                         })
                         setTimeout( async () => {
                             if (!files.has(k)) {
-                                const response = await fetch(`http://139.144.30.74:8080/${k}`)
+                                const response = await fetch(`http://veloxjs.com/${k}`)
                                 const nb = await response.blob()
                                 const nf = new Blob([nb], {
                                     type: nb.type,
@@ -140,7 +154,7 @@ if (velox_enabled == "true") {
                 const time_start = Date.now()
                 setTimeout( async () => {
                     if (!files.has(k)) {
-                        const response = await fetch(`http://139.144.30.74:8080/${k}`)
+                        const response = await fetch(`http://veloxjs.com/${k}`)
                         const nb = await response.blob()
                         const nf = new Blob([nb], {
                             type: nb.type,

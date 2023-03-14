@@ -4,7 +4,7 @@ const path = require('path')
 
 // Set app and port
 const app = express()
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 80
 
 // Route to public folder for static pages
 app.use(express.static(__dirname + '/public'))
